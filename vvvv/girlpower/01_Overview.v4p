@@ -1,8 +1,8 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.7.dtd" >
-   <PATCH nodename="C:\Dev\vvvv\vvvv\public\vvvv45\lib\packs\CraftLie.1.0.0\vvvv\girlpower\01_Overview.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" systemname="01_Overview" scrollx="0" scrolly="0" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug35.9.dtd" >
+   <PATCH nodename="C:\dev\vvvv\public\vvvv45\packs\CraftLie.1.0.1\vvvv\girlpower\01_Overview.v4p" filename="C:\vvvv\PROJECTS\2017\03_CraftLie\CraftLie\vvvv\girlpower\01_Overview.v4p" systemname="01_Overview" scrollx="0" scrolly="0" locked="0">
    <BOUNDS height="8580" left="0" top="0" type="Window" width="8775">
    </BOUNDS>
-   <PACK Name="addonpack" Version="35.0.0">
+   <PACK Name="addonpack" Version="35.9.0">
    </PACK>
    <NODE nodename="Group (DX11.Layer)" id="283" systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll">
    <BOUNDS type="Node" left="915" top="5340" width="0" height="0">
@@ -59,7 +59,7 @@
    </PIN>
    <PIN pinname="Object Count" visible="1">
    </PIN>
-   <PIN pinname="Fill Mode" slicecount="1" values="Solid">
+   <PIN pinname="Fill Mode" slicecount="1" visible="1" values="Solid">
    </PIN>
    </NODE>
    <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\packs\VL.EditingFramework.0.49.63-g3a681d5a96\vvvv\nodes\modules\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="305">
@@ -87,7 +87,7 @@
    <LINK srcnodeid="292" srcpinname="Layer" dstnodeid="283" dstpinname="Layer 1">
    </LINK>
    <NODE id="195" componentmode="InAWindow" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" systemname="Renderer (DX11)" stayontop="0">
-   <BOUNDS type="Window" left="8625" top="0" width="9870" height="10245">
+   <BOUNDS type="Window" left="16569" top="0" width="9870" height="10241">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -170,20 +170,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE id="307" systemname="Overview (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Overview (3d)" componentmode="Hidden">
-   <PIN pinname="Draw Description Layer" visible="1">
-   </PIN>
-   <BOUNDS type="Node" left="1710" top="2640" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Mouse Device" visible="1">
-   </PIN>
-   <PIN pinname="VVVV Folder" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="307" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="308" srcpinname="Output" dstnodeid="307" dstpinname="VVVV Folder">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="315">
    <BOUNDS type="Box" left="2505" top="3510" width="480" height="480">
    </BOUNDS>
@@ -206,4 +192,12 @@
    </LINK>
    <PACK Name="vvvv-Message" Version="2.9.6">
    </PACK>
+   <NODE id="316" systemname="Overview (3d)" filename="vl\VVVV.CraftLie.Girlpower.vl" nodename="Overview (3d)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1710" top="2640" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="316" srcpinname="Draw Description Layer" dstnodeid="292" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="308" srcpinname="Output" dstnodeid="316" dstpinname="VVVV Folder">
+   </LINK>
    </PATCH>

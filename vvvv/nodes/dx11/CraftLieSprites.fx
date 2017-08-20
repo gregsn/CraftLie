@@ -18,7 +18,6 @@ SamplerState g_samLinear : IMMUTABLE
 
 cbuffer cbPerDraw : register(b0)
 {
-	float2 InvRendererSize : INVTARGETSIZE;
 	float4x4 tVP:VIEWPROJECTION;
 	float4x4 tV:VIEW;
 	float4x4 tVI:VIEWINVERSE;
@@ -33,7 +32,6 @@ cbuffer cbPerObject : register(b1)
 {
     float4x4 tW : WORLD;
     uint di : DRAWINDEX;
-	float4 ClipRect = {-1, -1, 1, 1};
 }
 
 struct VS_IN
@@ -138,16 +136,7 @@ void gsPOINT(point VS_OUT In[1], inout PointStream<VS_OUT>GSOut)
 	GSOut.Append(Out);
 }
 
-void DoClipRect(float2 pixPos)
-{
-	float2 p = (pixPos * InvRendererSize) * 2 - 1;
-	if (p.x < ClipRect.x || p.y < ClipRect.y || p.x > ClipRect.z || p.y > ClipRect.w)
-		discard;
-}
-
-float4 PS(VS_OUT In):SV_Target
-{
-	DoClipRect(In.PosWVP.xy);
+float4 PS(VS_OUT In):SV_Target{
 	float4 col = tex0.SampleLevel(g_samLinear,In.TexCd.xy,0);
 	col *= In.Color;
 	return col;
